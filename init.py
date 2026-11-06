@@ -23,16 +23,18 @@ class Options():
 
         # dataset parameters
         parser.add_argument('--network', default='unetr', help='nnunet, unetr, transformer')
-        parser.add_argument('--patch_size', default=(3968), help='Size of the patches extracted from the image')
+        parser.add_argument('--patch_size', type=int, default=3968)
         parser.add_argument('--spacing', default=[0.7], help='Original Resolution')
         parser.add_argument('--resolution', default=None, help='New Resolution, if you want to resample the data in training. I suggest to resample in organize_folder_structure.py, otherwise in train resampling is slower')
         parser.add_argument('--batch_size', type=int, default=40, help='batch size, depends on your machine')
         parser.add_argument('--in_channels', default=5, type=int, help='Channels of the input')
         parser.add_argument('--out_channels', default=1, type=int, help='Channels of the output')
 
+
+
         # training parameters
-        parser.add_argument('--epochs', default=10, help='Number of epochs')
-        parser.add_argument('--lr', default=0.01, help='Learning rate')
+        parser.add_argument('--epochs', type=int, default=10)
+        parser.add_argument('--lr', type=float, default=0.01)
         parser.add_argument('--benchmark', default=True)
         parser.add_argument('--test', default=False)
         
