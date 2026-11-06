@@ -131,7 +131,9 @@ The original repository used `ROC.py` to summarize fold predictions. Where the i
 
 ![95-percent quality threshold ROC](images/ROC_95.png)
 
-![Confusion matrix](images/confusion_matrix.png)
+We achieve the following confusion matrix for the best of the 5-fold validation process:
+
+![Confusion Matrix](images/confusion_matrix.png)
 
 These existing images are illustrative repository assets. They do not replace the participant-level predictions, fold assignments, or experimental configuration required for independently regenerating the numerical results.
 
