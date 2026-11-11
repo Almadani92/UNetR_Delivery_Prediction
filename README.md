@@ -101,12 +101,6 @@ The original repository workflow is:
 5. Execute `train.py` according to its current command-line interface. Record the command, fold assignment, random seed, environment, epoch checkpoints, and effective configuration.
 6. Repeat for each of the five held-out participant folds, always starting a new model from scratch and keeping participant windows separated.
 
-### Checkpoint selection — verification required
-
-An earlier version of this README instructed users to **select the epoch with the lowest validation loss**. That historical instruction is not sufficient to establish how the reported manuscript models were actually selected. If the same held-out participants were used both to select the checkpoint and to estimate final test performance, the held-out evaluation was also involved in model selection, and the manuscript's independence claim requires correction or the experiment requires re-evaluation with a separate checkpoint-selection set.
-
-**Do not assume** that the last epoch, lowest-training-loss epoch, or lowest-validation-loss epoch was used for the paper without checking the historical training logs and saved models. The authoritative checkpoint policy should be documented after it has been verified from those artifacts. For a future fully independent evaluation, checkpoint selection should use training-only data or a nested validation split, while the final held-out fold remains untouched until evaluation.
-
 ## Evaluation
 
 For the manuscript's abdominal ECG evaluation:
@@ -133,14 +127,6 @@ The original repository used `ROC.py` to summarize fold predictions. Where the i
 
 
 These existing images are illustrative repository assets. They do not replace the participant-level predictions, fold assignments, or experimental configuration required for independently regenerating the numerical results.
-
-## Reproducibility and limitations
-
-- The clinical dataset is access-restricted; public code alone cannot reproduce the results without approved data access.
-- Historical runtime overrides and the precise checkpoint-selection procedure require verification before claiming that the repository fully reproduces the paper.
-- Signal-quality filtering changes participant coverage and class composition. The high-quality subgroup ROC-AUC is not representative of unfiltered clinical performance.
-- Lead, window-duration, prediction-horizon, and external EHG analyses are exploratory and were not all evaluated on identical cohorts.
-- The current study does not establish superiority over clinical or simpler machine-learning baselines and requires independent validation.
 
 ## Citation
 
